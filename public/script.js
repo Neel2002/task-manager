@@ -48,6 +48,7 @@ function renderTasks() {
     taskCard.classList.add('taskCard');
     let classVal = "pending";
     let textVal = "Pending"
+    
     if (task.completed) {
       classVal = "completed";
       textVal = "Completed";
@@ -63,10 +64,13 @@ function renderTasks() {
 
     const toggleButton = document.createElement('button');
     toggleButton.classList.add("button-box");
+
     const btnContentEl = document.createElement("span");
     btnContentEl.classList.add("green");
+
     btnContentEl.innerText = task.completed ? 'Mark as Pending' : 'Mark as Completed';
     toggleButton.appendChild(btnContentEl);
+
     toggleButton.addEventListener('click', () => {
       tasks[index].completed = !tasks[index].completed;
       saveTasks();
@@ -79,6 +83,7 @@ function renderTasks() {
     delBtnContentEl.classList.add("red");
     delBtnContentEl.innerText = 'Delete';
     deleteButton.appendChild(delBtnContentEl);
+
     deleteButton.addEventListener('click', () => {
       indexToBeDeleted = index
       confirmEl.style.display = "block";
